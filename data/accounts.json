@@ -1,0 +1,26 @@
+{
+  "google_115575352794947693327": {
+    "password_hash": "",
+    "provider": "google",
+    "google_sub": "115575352794947693327",
+    "email": "adrijarena20@gmail.com",
+    "full_name": "Adrij Ghosh",
+    "profile": {
+      "full_name": "Adrij Ghosh",
+      "email": "adrijarena20@gmail.com",
+      "age": "19",
+      "gender": "Male",
+      "height": "5'11 inches",
+      "weight": "85",
+      "allergies": "None",
+      "conditions": "None",
+      "medications": "None",
+      "family_history": "None",
+      "emergency_contact": "None"
+    },
+    "history": [],
+    "notes": [],
+    "reminders": [],
+    "role": "user"
+  }
+}

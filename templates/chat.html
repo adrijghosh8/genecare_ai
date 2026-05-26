@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Doctor Chat | GeneCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="page-shell chat-page">
+    <nav class="top-nav" aria-label="Page navigation">
+        <a href="{{ url_for('home') }}">GeneCare AI</a>
+        <div>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('history') }}">History</a>
+            <span>{{ active_display_name }}</span>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+
+    <section class="chat-hero">
+        <div>
+            <p class="eyebrow">Current Issues</p>
+            <h1>AI Doctor Chat</h1>
+            <p class="hero-text">Share symptoms, timeline, and concerns. The assistant helps you prepare next steps and questions for a qualified doctor.</p>
+        </div>
+        <aside>
+            <strong>Safety note</strong>
+            <p>This chatbot is educational and cannot diagnose, prescribe, or replace urgent care.</p>
+        </aside>
+    </section>
+
+    <section class="chat-layout">
+        <div class="chat-panel">
+            <div class="chat-thread" id="chatThread" aria-live="polite">
+                <div class="message assistant-message">
+                    <span>AI Doctor</span>
+                    <p>Hello {{ active_display_name }}. Tell me what symptoms or health concerns you are having today.</p>
+                </div>
+                {% for item in chat_items|reverse %}
+                <div class="message user-message">
+                    <span>You</span>
+                    <p>{{ item.title }}</p>
+                </div>
+                <div class="message assistant-message">
+                    <span>AI Doctor</span>
+                    <p>{{ item.content }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <form class="chat-composer" id="chatForm">
+                <label for="chatInput">Describe your current issue</label>
+                <textarea id="chatInput" name="message" rows="4" placeholder="Example: I have had fever and body aches for two days..." required></textarea>
+                <p class="provider-note">Uses the built-in health guidance assistant with urgent-symptom safety checks.</p>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <aside class="history-panel">
+            <p class="section-kicker">Recent Search History</p>
+            <h2>Your account</h2>
+            {% if chat_items %}
+            <div class="mini-history">
+                {% for item in chat_items[:6] %}
+                <article>
+                    <span>{{ item.created_at }}</span>
+                    <strong>{{ item.title }}</strong>
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="empty-state">Your chat searches will appear here after you send a message.</p>
+            {% endif %}
+            <a class="text-link" href="{{ url_for('history') }}">View full history</a>
+        </aside>
+    </section>
+</main>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

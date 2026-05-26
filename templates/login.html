@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | GeneCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="auth-shell">
+    <section class="auth-card">
+        <a class="auth-brand" href="{{ url_for('home') }}">
+            <span class="brand-mark" aria-hidden="true">+</span>
+            <span>GeneCare AI</span>
+        </a>
+        <p class="section-kicker">Account Access</p>
+        <h1>Login to your health workspace</h1>
+        <p class="auth-copy">Your disease assessments and AI doctor conversations are saved to your own account history.</p>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="flash-list">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" class="auth-form">
+            <div class="form-grid two-fields account-details">
+                <label class="field">
+                    <span>Full Name</span>
+                    <input type="text" name="full_name" placeholder="Name">
+                </label>
+                <label class="field">
+                    <span>Email</span>
+                    <input type="email" name="email" placeholder="Email">
+                </label>
+            </div>
+            <label class="field">
+                <span>Username</span>
+                <input type="text" name="username" autocomplete="username" required>
+            </label>
+            <label class="field">
+                <span>Password</span>
+                <input type="password" name="password" placeholder="Password" autocomplete="current-password" required>
+            </label>
+            <div class="auth-actions">
+                <button type="submit" name="action" value="login">Login</button>
+                <button type="submit" name="action" value="register" class="secondary-button">Create Account</button>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

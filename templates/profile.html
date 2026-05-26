@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | GeneCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="page-shell">
+    <nav class="top-nav" aria-label="Page navigation">
+        <a href="{{ url_for('home') }}">GeneCare AI</a>
+        <div>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('chat') }}">AI Doctor Chat</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+
+    <section class="history-hero">
+        <p class="eyebrow">{% if onboarding %}Account Setup{% else %}Health Profile{% endif %}</p>
+        <h1>{% if onboarding %}Complete your account details{% else %}Update your health profile{% endif %}</h1>
+        <p class="hero-text">These details help personalize assessments, reports, and AI doctor context.</p>
+    </section>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flash-list page-flashes">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" class="prediction-form profile-form">
+        <div class="form-grid">
+            {% for name, label in profile_fields %}
+            <label class="field {% if name in ['allergies', 'conditions', 'medications', 'family_history'] %}span-two{% endif %}">
+                <span>{{ label }}</span>
+                <input type="{% if name == 'email' %}email{% elif name == 'age' %}number{% else %}text{% endif %}" name="{{ name }}" value="{{ profile.get(name, '') }}" placeholder="{{ label }}">
+            </label>
+            {% endfor %}
+        </div>
+        <button type="submit">Save Profile</button>
+    </form>
+</main>
+</body>
+</html>
