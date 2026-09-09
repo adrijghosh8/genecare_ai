@@ -1,0 +1,638 @@
+/* =========================================
+   GeneCare AI - Login
+   Neutral / Charcoal Theme
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: #171918;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 255, 255, 0.9),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #eeeeec 0%,
+            #f6f6f4 50%,
+            #e9e9e6 100%
+        );
+}
+
+
+/* =========================================
+   Page Layout
+========================================= */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================================
+   Main Card
+========================================= */
+
+.auth-card {
+    width: 100%;
+    max-width: 980px;
+
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #dedfdb;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.08),
+        0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================================
+   Left Visual Section
+========================================= */
+
+.auth-visual {
+    position: relative;
+
+    min-height: 620px;
+
+    padding: 48px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e4e4e1,
+            #f0f0ed
+        );
+}
+
+
+/* Decorative shapes */
+
+.auth-visual::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    top: -100px;
+    right: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.65);
+}
+
+
+.auth-visual::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    bottom: 40px;
+    left: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.035);
+}
+
+
+/* =========================================
+   Logo
+========================================= */
+
+.auth-brand {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #171918;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.auth-brand img {
+    width: 30px;
+    height: 30px;
+}
+
+
+/* =========================================
+   Visual Content
+========================================= */
+
+.auth-visual-content {
+    position: relative;
+    z-index: 1;
+
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+.auth-eyebrow {
+    margin: 0 0 14px;
+
+    color: #555955;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+}
+
+
+.auth-visual h1 {
+    max-width: 390px;
+
+    margin: 0 0 18px;
+
+    color: #171918;
+
+    font-size: clamp(36px, 4vw, 52px);
+
+    line-height: 1.04;
+
+    letter-spacing: -0.045em;
+}
+
+
+.auth-visual p {
+    max-width: 390px;
+
+    margin: 0;
+
+    color: #626662;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   Feature Box
+========================================= */
+
+.auth-feature {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 16px;
+
+    border: 1px solid rgba(0, 0, 0, 0.06);
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.65);
+}
+
+
+.auth-feature-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: #252725;
+
+    color: #ffffff;
+
+    font-size: 18px;
+}
+
+
+.auth-feature strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #222522;
+
+    font-size: 13px;
+}
+
+
+.auth-feature span {
+    color: #6d716d;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   Form Section
+========================================= */
+
+.auth-form-section {
+    padding: 55px 60px;
+
+    display: flex;
+    align-items: center;
+
+    background: #ffffff;
+}
+
+
+.auth-form {
+    width: 100%;
+    max-width: 390px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   Heading
+========================================= */
+
+.auth-form h2 {
+    margin: 0 0 8px;
+
+    color: #171918;
+
+    font-size: 32px;
+
+    letter-spacing: -0.04em;
+}
+
+
+.auth-form-subtitle {
+    margin: 0 0 32px;
+
+    color: #747873;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   Form Groups
+========================================= */
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #303330;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   Inputs
+========================================= */
+
+.form-group input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 15px;
+
+    border: 1px solid #dcded9;
+
+    border-radius: 11px;
+
+    outline: none;
+
+    background: #f8f8f6;
+
+    color: #171918;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.form-group input::placeholder {
+    color: #a0a39f;
+}
+
+
+.form-group input:hover {
+    background: #ffffff;
+}
+
+
+.form-group input:focus {
+    background: #ffffff;
+
+    border-color: #555955;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================
+   Button
+========================================= */
+
+.auth-button {
+    width: 100%;
+    height: 50px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #171918;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.auth-button:hover {
+    background: #2b2d2b;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   Messages
+========================================= */
+
+#errorMessage,
+#message {
+    margin-top: 15px;
+
+    color: #777a76;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.error {
+    color: #9a4444;
+}
+
+
+.success {
+    color: #39705d;
+}
+
+
+/* =========================================
+   Switch
+========================================= */
+
+.auth-switch {
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #777a76;
+
+    font-size: 13px;
+}
+
+
+.auth-switch a {
+    color: #171918;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   Disclaimer
+========================================= */
+
+.auth-disclaimer {
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #ededeb;
+
+    color: #999c98;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media (max-width: 800px) {
+
+    .auth-card {
+        grid-template-columns: 1fr;
+
+        max-width: 520px;
+    }
+
+    .auth-visual {
+        min-height: 300px;
+
+        padding: 35px;
+    }
+
+    .auth-visual-content {
+        margin: 45px 0 30px;
+    }
+
+    .auth-visual h1 {
+        font-size: 36px;
+    }
+
+    .auth-feature {
+        display: none;
+    }
+
+    .auth-form-section {
+        padding: 40px 35px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .auth-page {
+        padding: 15px;
+    }
+
+    .auth-card {
+        border-radius: 20px;
+    }
+
+    .auth-visual {
+        min-height: 250px;
+
+        padding: 28px;
+    }
+
+    .auth-visual h1 {
+        font-size: 32px;
+    }
+
+    .auth-form-section {
+        padding: 32px 24px;
+    }
+
+    .auth-form h2 {
+        font-size: 28px;
+    }
+}
+
+/* =========================================
+   Password Toggle
+========================================= */
+
+.password-wrapper {
+    position: relative;
+}
+
+
+.password-wrapper input {
+    padding-right: 65px;
+}
+
+
+.password-toggle {
+    position: absolute;
+
+    top: 50%;
+    right: 12px;
+
+    transform: translateY(-50%);
+
+    padding: 5px 7px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #656965;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.password-toggle:hover {
+    color: #171918;
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | GeneCare AI</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/genecare-mark.svg">
+
+    <link rel="stylesheet" href="css/pages/register.css">
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <div class="auth-card">
+
+            <!-- =========================
+                 Left Visual Section
+            ========================== -->
+
+            <section class="auth-visual">
+
+                <a href="index.html" class="auth-brand">
+
+                    <img src="assets/icons/genecare-mark.svg" alt="GeneCare AI">
+
+                    <span>GeneCare AI</span>
+
+                </a>
+
+
+                <div class="auth-visual-content">
+
+                    <p class="auth-eyebrow">
+                        Start your health journey
+                    </p>
+
+                    <h1>
+                        A clearer way to explore your health.
+                    </h1>
+
+                    <p>
+                        Create your GeneCare AI account to keep
+                        track of your assessments and explore
+                        explainable machine-learning predictions.
+                    </p>
+
+                </div>
+
+
+                <div class="auth-feature-list">
+
+                    <div class="auth-feature">
+
+                        <div class="auth-feature-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Personal History
+                            </strong>
+
+                            <span>
+                                Keep your previous assessments
+                                in one place.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="auth-feature">
+
+                        <div class="auth-feature-icon">
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Explainable Predictions
+                            </strong>
+
+                            <span>
+                                Explore the factors contributing
+                                to your results.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="auth-feature">
+
+                        <div class="auth-feature-icon">
+                            +
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Educational Screening
+                            </strong>
+
+                            <span>
+                                Designed to help you understand
+                                health-risk patterns.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 Register Form
+            ========================== -->
+
+            <section class="auth-form-section">
+
+                <div class="auth-form">
+
+                    <h2>
+                        Create your account
+                    </h2>
+
+                    <p class="auth-form-subtitle">
+                        Join GeneCare AI and keep your health
+                        screening assessments organized.
+                    </p>
+
+
+                    <form id="registerForm">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input type="text" id="name" placeholder="Enter your name" autocomplete="name" required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email
+                            </label>
+
+                            <input type="email" id="email" placeholder="Enter your email" autocomplete="email" required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <div class="password-wrapper">
+
+                                <input type="password" id="password" placeholder="At least 8 characters" minlength="8"
+                                    maxlength="72" autocomplete="new-password" required>
+
+                                <button type="button" class="password-toggle" id="password-toggle"
+                                    aria-label="Show password">
+
+                                    Show
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <button type="submit" class="auth-button">
+
+                            Create Account
+
+                        </button>
+
+
+                        <p id="errorMessage"></p>
+
+                    </form>
+
+
+                    <p class="auth-switch">
+
+                        Already have an account?
+
+                        <a href="login.html">
+                            Login
+                        </a>
+
+                    </p>
+
+
+                    <p class="auth-disclaimer">
+                        GeneCare AI is designed for educational
+                        screening only and does not provide a
+                        medical diagnosis.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/pages/register.js"></script>
+    <script>
+        const passwordInput = document.getElementById("password");
+        const passwordToggle = document.getElementById("password-toggle");
+
+        passwordToggle.addEventListener("click", () => {
+
+            const isPassword =
+                passwordInput.type === "password";
+
+            passwordInput.type =
+                isPassword ? "text" : "password";
+
+            passwordToggle.textContent =
+                isPassword ? "Hide" : "Show";
+
+            passwordToggle.setAttribute(
+                "aria-label",
+                isPassword ? "Hide password" : "Show password"
+            );
+
+        });
+    </script>
+
+</body>
+
+</html>

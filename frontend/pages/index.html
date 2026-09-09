@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Educational machine-learning health-risk screening.">
+    <title>GeneCare AI — Health-Risk Screening</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/genecare-mark.svg">
+    <link rel="stylesheet" href="css/base/style.css">
+    <link rel="stylesheet" href="css/components/components.css">
+    <link rel="stylesheet" href="css/components/responsive.css">
+</head>
+
+<body data-page="home">
+    <header id="site-header" class="site-header"></header>
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <p class="eyebrow">Machine-learning based screening</p>
+                    <h1>Machine Learning for<br><span>Health-Risk Screening</span></h1>
+                    <p class="lead">A simple educational platform that uses machine-learning models to explore potential
+                        health-risk patterns from user-provided information.</p>
+                    <div class="actions"><a class="button" href="analyze.html">Start an Assessment</a><a
+                            class="button secondary" href="diseases.html">Explore Models</a></div>
+                </div>
+                <div class="signal" aria-label="GeneCare AI workflow">
+                    <small>GENECARE AI / WORKFLOW</small>
+                    <strong>From clinical inputs to an explainable model estimate.</strong>
+                    <div class="signal-flow">
+                        <div class="signal-step"><span>01</span><b>Clinical data</b><i></i></div>
+                        <div class="signal-step"><span>02</span><b>ML model</b><i></i></div>
+                        <div class="signal-step"><span>03</span><b>Risk estimate</b><i></i></div>
+                        <div class="signal-step"><span>04</span><b>SHAP explanation</b><i></i></div>
+                    </div>
+                    <p style="margin-top:18px">Only trained, active screening modules return predictions.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">A clear process</p>
+                    <h2>How GeneCare Works</h2>
+                </div>
+                <div class="grid-3">
+                    <article class="card"><span class="number">01</span>
+                        <h3>Provide Information</h3>
+                        <p>Enter the clinical information required by the selected model.</p>
+                    </article>
+                    <article class="card"><span class="number">02</span>
+                        <h3>ML Analysis</h3>
+                        <p>Your information is sent to the connected machine-learning API.</p>
+                    </article>
+                    <article class="card"><span class="number">03</span>
+                        <h3>Understand the Result</h3>
+                        <p>Review an estimated risk pattern and available feature contributions.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section alt">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Current scope</p>
+                    <h2>Active Screening Models</h2>
+                </div>
+                <div class="grid-3">
+                    <article class="card"><span class="status">Active</span>
+                        <p class="category">Cardiovascular</p>
+                        <h3>Heart Disease</h3>
+                        <p>Logistic Regression · UCI Cleveland dataset · SHAP.</p><a
+                            href="analyze.html?model=heart">Start screening →</a>
+                    </article>
+                    <article class="card"><span class="status">Active</span>
+                        <p class="category">Metabolic</p>
+                        <h3>Diabetes</h3>
+                        <p>XGBoost · Pima Indians dataset · SHAP.</p><a href="analyze.html?model=diabetes">Start
+                            screening →</a>
+                    </article>
+                    <article class="card"><span class="status dev">In Development</span>
+                        <h3>Breast Cancer</h3>
+                        <p>This module is not deployed and does not produce predictions.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <aside class="disclaimer"><strong>Important</strong>
+                    <p>GeneCare AI provides educational health-risk screening estimates. It is not a medical diagnostic
+                        system and should not replace professional medical advice.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <footer id="site-footer" class="site-footer"></footer>
+    <script type="module" src="js/components/main.js"></script>
+</body>
+
+</html>

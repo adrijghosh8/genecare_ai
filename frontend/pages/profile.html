@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Profile | GeneCare AI</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/genecare-mark.svg">
+
+    <link rel="stylesheet" href="css/base/style.css">
+    <link rel="stylesheet" href="css/components/components.css">
+    <link rel="stylesheet" href="css/components/responsive.css">
+    <link rel="stylesheet" href="css/pages/profile.css">
+
+</head>
+
+
+<body data-page="profile">
+
+
+    <!-- Shared Header -->
+
+    <header id="site-header" class="site-header">
+    </header>
+
+
+    <!-- Main -->
+
+    <main class="page">
+
+        <div class="container">
+
+
+            <div class="page-intro">
+
+                <p class="eyebrow">
+                    Account
+                </p>
+
+                <h1>
+                    Profile & Settings
+                </h1>
+
+                <p>
+                    Manage your personal information and
+                    GeneCare AI account.
+                </p>
+
+            </div>
+
+
+            <section class="profile-layout">
+
+
+                <!-- Profile Summary -->
+
+                <div class="profile-summary">
+
+                    <div class="profile-avatar profile-avatar-large" id="profile-avatar">
+
+                        U
+
+                    </div>
+
+
+                    <h2 id="profile-name">
+                        Loading...
+                    </h2>
+
+
+                    <p id="profile-email">
+                        Loading...
+                    </p>
+
+
+                    <div class="profile-summary-divider"></div>
+
+
+                    <p class="profile-summary-label">
+                        Member since
+                    </p>
+
+                    <p class="profile-summary-value" id="profile-created">
+
+                        --
+
+                    </p>
+
+                </div>
+
+
+                <!-- Edit Profile -->
+
+                <div class="profile-card">
+
+                    <div class="profile-card-header">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                Personal details
+                            </p>
+
+                            <h2>
+                                Your information
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="profile-form">
+
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input type="text" id="name" required minlength="2" maxlength="100" autocomplete="name">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input type="email" id="email" required autocomplete="email">
+
+                        </div>
+
+
+                        <div id="profile-message" class="profile-message">
+                        </div>
+
+
+                        <button type="submit" class="profile-save-button" id="save-profile">
+
+                            Save Changes
+
+                        </button>
+
+
+                    </form>
+
+
+                    <div class="profile-note">
+
+                        <strong>
+                            Account information
+                        </strong>
+
+                        <p>
+                            Your profile information is used to
+                            associate your prediction history with
+                            your account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+            <div class="profile-card password-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Security
+                        </p>
+
+                        <h2>
+                            Change Password
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <form id="password-form">
+
+                    <div class="form-group">
+
+                        <label for="current-password">
+                            Current Password
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input type="password" id="current-password" required autocomplete="current-password">
+
+                            <button type="button" class="password-toggle" data-target="current-password">
+                                Show
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="new-password">
+                            New Password
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input type="password" id="new-password" required minlength="8" maxlength="72"
+                                autocomplete="new-password">
+
+                            <button type="button" class="password-toggle" data-target="new-password">
+                                Show
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="confirm-password">
+                            Confirm New Password
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input type="password" id="confirm-password" required minlength="8" maxlength="72"
+                                autocomplete="new-password">
+
+                            <button type="button" class="password-toggle" data-target="confirm-password">
+                                Show
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="password-message" class="profile-message">
+                    </div>
+
+
+                    <button type="submit" class="profile-save-button" id="change-password-button">
+
+                        Change Password
+
+                    </button>
+
+                </form>
+
+
+                <div class="profile-note">
+
+                    <strong>
+                        Password requirements
+                    </strong>
+
+                    <p>
+                        Your password must contain at least
+                        8 characters.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer id="site-footer" class="site-footer">
+    </footer>
+
+
+    <script src="js/components/main.js"></script>
+    <script src="js/core/auth.js"></script>
+    <script src="js/pages/profile.js"></script>
+
+
+    <script>
+        protectPage();
+    </script>
+
+</body>
+
+</html>

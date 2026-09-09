@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Prediction History | GeneCare AI</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/genecare-mark.svg">
+
+    <link rel="stylesheet" href="css/base/style.css">
+    <link rel="stylesheet" href="css/components/components.css">
+    <link rel="stylesheet" href="css/components/responsive.css">
+    <link rel="stylesheet" href="css/pages/history.css">
+</head>
+
+
+<body data-page="history">
+
+    <!-- Shared GeneCare Header -->
+    <header id="site-header" class="site-header"></header>
+
+
+    <!-- Main Content -->
+    <main class="page">
+
+        <div class="container">
+
+            <div class="page-intro">
+
+                <p class="eyebrow">
+                    Your assessments
+                </p>
+
+                <h1>
+                    Prediction History
+                </h1>
+
+                <p>
+                    View your previous GeneCare AI assessments.
+                </p>
+
+            </div>
+
+
+            <div id="history-container">
+
+                <p>
+                    Loading history...
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Shared GeneCare Footer -->
+    <footer id="site-footer" class="site-footer"></footer>
+
+
+    <!-- JavaScript -->
+
+    <script type="module" src="js/components/main.js"></script>
+
+    <script src="js/core/auth.js"></script>
+
+    <script src="js/pages/history.js"></script>
+
+
+    <script>
+        protectPage();
+    </script>
+
+</body>
+
+</html>

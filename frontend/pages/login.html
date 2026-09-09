@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | GeneCare AI</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/genecare-mark.svg">
+
+    <link rel="stylesheet" href="css/pages/login.css">
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <div class="auth-card">
+
+            <!-- =========================
+                 Left Visual Section
+            ========================== -->
+
+            <section class="auth-visual">
+
+                <a href="index.html" class="auth-brand">
+                    <img src="assets/icons/genecare-mark.svg" alt="GeneCare AI">
+
+                    <span>GeneCare AI</span>
+                </a>
+
+
+                <div class="auth-visual-content">
+
+                    <p class="auth-eyebrow">
+                        AI-powered health screening
+                    </p>
+
+                    <h1>
+                        Understand your health with confidence.
+                    </h1>
+
+                    <p>
+                        GeneCare AI uses machine-learning models
+                        to provide educational health-risk screening
+                        with transparent and explainable results.
+                    </p>
+
+                </div>
+
+
+                <div class="auth-feature">
+
+                    <div class="auth-feature-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Explainable AI
+                        </strong>
+
+                        <span>
+                            Understand the factors behind your
+                            prediction with SHAP explanations.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 Login Form
+            ========================== -->
+
+            <section class="auth-form-section">
+
+                <div class="auth-form">
+
+                    <h2>
+                        Welcome back
+                    </h2>
+
+                    <p class="auth-form-subtitle">
+                        Sign in to access your GeneCare AI assessments
+                        and prediction history.
+                    </p>
+
+
+                    <form id="loginForm">
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email
+                            </label>
+
+                            <input type="email" id="email" placeholder="Enter your email" autocomplete="email" required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <div class="password-wrapper">
+
+                                <input type="password" id="password" placeholder="Enter your password"
+                                    autocomplete="current-password" required>
+
+                                <button type="button" class="password-toggle" id="password-toggle"
+                                    aria-label="Show password">
+
+                                    Show
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <button type="submit" class="auth-button">
+
+                            Login
+
+                        </button>
+
+
+                        <p id="errorMessage"></p>
+
+                    </form>
+
+
+                    <p class="auth-switch">
+
+                        Don't have an account?
+
+                        <a href="register.html">
+                            Create one
+                        </a>
+
+                    </p>
+
+
+                    <p class="auth-disclaimer">
+                        GeneCare AI is designed for educational
+                        screening only and does not provide a
+                        medical diagnosis.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- Keep your existing authentication JavaScript -->
+    <script src="js/core/auth.js"></script>
+    <script>
+        const passwordInput = document.getElementById("password");
+        const passwordToggle = document.getElementById("password-toggle");
+
+        passwordToggle.addEventListener("click", () => {
+
+            const isPassword =
+                passwordInput.type === "password";
+
+            passwordInput.type =
+                isPassword ? "text" : "password";
+
+            passwordToggle.textContent =
+                isPassword ? "Hide" : "Show";
+
+            passwordToggle.setAttribute(
+                "aria-label",
+                isPassword ? "Hide password" : "Show password"
+            );
+
+        });
+    </script>
+
+</body>
+
+</html>

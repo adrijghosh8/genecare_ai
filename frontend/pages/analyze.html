@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Start an Assessment — GeneCare AI</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/genecare-mark.svg">
+    <link rel="stylesheet" href="css/base/style.css">
+    <link rel="stylesheet" href="css/components/components.css">
+    <link rel="stylesheet" href="css/components/responsive.css">
+</head>
+
+<body data-page="analyze">
+    <header id="site-header" class="site-header"></header>
+    <main class="page">
+        <div class="container">
+            <div class="page-intro">
+                <p class="eyebrow">Educational screening</p>
+                <h1>Start an Assessment</h1>
+                <p>Select a screening model and provide the required information.</p>
+            </div>
+            <div id="model-buttons" class="model-buttons"></div>
+            <div class="assessment-layout">
+                <form id="assessment-form" class="panel"></form>
+                <aside class="panel side-panel"><span class="status">Active models</span>
+                    <h2>Before you begin</h2>
+                    <p>Use recent, accurate clinical measurements where possible. Every field is required by the
+                        selected trained model.</p>
+                    <dl>
+                        <div>
+                            <dt>Purpose</dt>
+                            <dd>Educational screening</dd>
+                        </div>
+                        <div>
+                            <dt>Result</dt>
+                            <dd>Estimated probability</dd>
+                        </div>
+                        <div>
+                            <dt>Explanation</dt>
+                            <dd>SHAP contributions</dd>
+                        </div>
+                    </dl>
+                    <p>Results are available only after the FastAPI prediction service responds.</p>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer id="site-footer" class="site-footer"></footer>
+    <script type="module" src="js/components/main.js"></script>
+    <script type="module" src="js/pages/analyze.js"></script>
+    <script src="js/core/auth.js"></script>
+
+    <script>
+        protectPage();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+/* =========================================================
+   PROFILE LAYOUT
+========================================================= */
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 225px minmax(0, 1fr);
+    gap: 0;
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   LEFT PROFILE SUMMARY
+========================================================= */
+
+.profile-summary {
+    padding: 30px 22px;
+    background: #ffffff;
+
+    border: 1px solid #dedfdb;
+    border-right: none;
+
+    border-radius: 18px 0 0 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+
+/* Avatar */
+
+.profile-avatar-large {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #202321;
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+/* Name */
+
+.profile-summary h2 {
+    margin: 0 0 6px;
+
+    color: #202321;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+/* Email */
+
+.profile-summary p {
+    margin: 0;
+
+    color: #777b76;
+
+    font-size: 12px;
+}
+
+
+/* Divider */
+
+.profile-summary-divider {
+    height: 1px;
+
+    margin: 22px 0;
+
+    background: #e8e9e6;
+}
+
+
+/* Member since */
+
+.profile-summary-label {
+    margin-bottom: 5px !important;
+
+    color: #999d98 !important;
+
+    font-size: 10px !important;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.profile-summary-value {
+    color: #4f534f !important;
+
+    font-size: 12px !important;
+}
+
+
+/* =========================================================
+   RIGHT PERSONAL DETAILS
+========================================================= */
+
+.profile-card {
+    padding: 30px 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #dedfdb;
+
+    border-radius: 0 18px 18px 0;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+
+/* Header */
+
+.profile-card-header {
+    margin-bottom: 24px;
+}
+
+.profile-card-header h2 {
+    margin: 6px 0 0;
+
+    color: #171918;
+
+    font-size: 21px;
+}
+
+
+/* Form */
+
+.profile-card .form-group {
+    margin-bottom: 18px;
+}
+
+.profile-card label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #303330;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* Inputs */
+
+.profile-card input {
+    width: 100%;
+    box-sizing: border-box;
+
+    height: 42px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d8d9d5;
+    border-radius: 9px;
+
+    background: #fafaf8;
+
+    color: #202321;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.profile-card input:focus {
+    border-color: #aeb1ac;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(32, 35, 33, 0.05);
+}
+
+
+/* Save button */
+
+.profile-save-button {
+    width: 100%;
+
+    height: 42px;
+
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #191b1a;
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+.profile-save-button:hover {
+    background: #2c2f2d;
+}
+
+.profile-save-button:active {
+    transform: translateY(1px);
+}
+
+
+/* =========================================================
+   ACCOUNT INFORMATION
+========================================================= */
+
+.profile-note {
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border: 1px solid #e1e2de;
+    border-radius: 10px;
+
+    background: #f7f8f5;
+}
+
+.profile-note strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #303330;
+
+    font-size: 11px;
+}
+
+.profile-note p {
+    margin: 0;
+
+    color: #747874;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PASSWORD SECTION
+========================================================= */
+
+.password-card {
+    margin-top: 24px;
+
+    border-radius: 18px;
+}
+
+
+/* Password fields */
+
+.password-card .password-wrapper {
+    position: relative;
+}
+
+.password-card .password-wrapper input {
+    padding-right: 65px;
+}
+
+
+/* Show / Hide */
+
+.password-card .password-toggle {
+    position: absolute;
+
+    top: 50%;
+    right: 10px;
+
+    transform: translateY(-50%);
+
+    padding: 5px 7px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #686c68;
+
+    font-family: inherit;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.password-card .password-toggle:hover {
+    color: #171918;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-summary {
+        border-right: 1px solid #dedfdb;
+        border-bottom: none;
+
+        border-radius: 18px 18px 0 0;
+
+        padding: 25px 20px;
+    }
+
+    .profile-card {
+        border-radius: 0 0 18px 18px;
+    }
+
+}
