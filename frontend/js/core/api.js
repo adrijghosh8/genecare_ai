@@ -1,5 +1,5 @@
 // Change this one value if your FastAPI server uses a different address.
-const API_BASE_URL = window.GENECARE_API_BASE_URL || "http://localhost:8000";
+const API_BASE_URL = window.GENECARE_API_BASE_URL || "https://genecare-ai.onrender.com";
 async function requestPrediction(model, data) {
     const token = localStorage.getItem("access_token");
 
