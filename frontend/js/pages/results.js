@@ -31,7 +31,7 @@ async function loadResult() {
         try {
 
             const response = await fetch(
-                `http://localhost:8000/history/${predictionId}`,
+                `https://genecare-ai.onrender.com/history/${predictionId}`,
                 {
                     method: "GET",
                     headers: {
