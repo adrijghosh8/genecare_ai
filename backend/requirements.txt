@@ -3,8 +3,8 @@ uvicorn[standard]
 pydantic
 python-dotenv
 python-jose[cryptography]
-passlib[bcrypt]
-bcrypt
+passlib==1.7.4
+bcrypt==4.3.0
 pandas
 numpy
 scikit-learn
