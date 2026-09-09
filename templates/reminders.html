@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminders | GeneCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="page-shell">
+    <nav class="top-nav" aria-label="Page navigation">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <div>
+            <a href="{{ url_for('profile') }}">Profile</a>
+            <a href="{{ url_for('chat') }}">AI Doctor Chat</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+
+    <section class="history-hero">
+        <p class="eyebrow">Care Planning</p>
+        <h1>Reminders</h1>
+        <p class="hero-text">Keep track of checkups, medicines, tests, and follow-up assessments.</p>
+    </section>
+
+    <section class="two-column-page">
+        <form method="POST" class="prediction-form">
+            <div class="form-heading">
+                <div>
+                    <p class="section-kicker">New Reminder</p>
+                    <h2>Add a task</h2>
+                </div>
+            </div>
+            <div class="form-grid two-fields">
+                <label class="field">
+                    <span>Title</span>
+                    <input type="text" name="title" placeholder="Book cardiology follow-up" required>
+                </label>
+                <label class="field">
+                    <span>Due Date</span>
+                    <input type="date" name="due_date">
+                </label>
+                <label class="field span-two">
+                    <span>Category</span>
+                    <input type="text" name="category" placeholder="Checkup, medicine, lab test">
+                </label>
+            </div>
+            <button type="submit">Add Reminder</button>
+        </form>
+
+        <section class="dashboard-card">
+            <p class="section-kicker">Saved</p>
+            <h2>Reminder list</h2>
+            {% if reminders %}
+            <div class="compact-list reminder-list">
+                {% for reminder in reminders %}
+                <article class="{% if reminder.completed %}completed{% endif %}">
+                    <div>
+                        <strong>{{ reminder.title }}</strong>
+                        <span>{{ reminder.category or 'General' }} · {{ reminder.due_date or 'No date' }}</span>
+                    </div>
+                    {% if not reminder.completed %}
+                    <form method="POST" action="{{ url_for('complete_reminder', reminder_id=reminder.id) }}">
+                        <button type="submit" class="tiny-button">Done</button>
+                    </form>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="empty-state">No reminders yet.</p>
+            {% endif %}
+        </section>
+    </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeneCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="page-shell">
+    <nav class="top-nav account-nav" aria-label="Account navigation">
+        <a href="{{ url_for('home') }}">GeneCare AI</a>
+        <div>
+            <a href="{{ url_for('chat') }}">AI Doctor Chat</a>
+            {% if active_username %}
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('history') }}">History</a>
+            <span>{{ active_display_name }}</span>
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+            <div class="brand-lockup">
+                <span class="brand-mark" aria-hidden="true">+</span>
+                <span>GeneCare AI</span>
+            </div>
+            <p class="eyebrow">Preventive health assessment</p>
+            <h1 id="page-title">Health Risk Screening</h1>
+            <p class="hero-text">Explore focused assessments with clear metrics, risk-factor explanations, and follow-up guidance.</p>
+        </div>
+        <div class="hero-panel" aria-hidden="true">
+            <div class="panel-header">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <svg class="pulse-visual" viewBox="0 0 420 150" focusable="false">
+                <path d="M24 42H396"></path>
+                <path d="M24 76H396"></path>
+                <path d="M24 110H396"></path>
+                <polyline points="24,92 70,92 88,56 106,118 132,92 182,92 202,28 226,124 252,92 310,92 332,70 352,92 396,92"></polyline>
+            </svg>
+            <div class="metric-list">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="selection-header">
+        <div>
+            <p class="section-kicker">Assessment Library</p>
+            <h2>Explore conditions by category</h2>
+        </div>
+        <span class="input-count">{{ disease_count }} assessments</span>
+    </section>
+
+    <section class="category-browser" aria-label="Disease assessment categories">
+        {% for category in categories %}
+        <section class="category-section">
+            <header class="category-heading">
+                <div>
+                    <p class="section-kicker">{{ category.title }}</p>
+                    <h2>{{ category.description }}</h2>
+                </div>
+                <span>{{ category.diseases|length }} assessments</span>
+            </header>
+            <div class="disease-grid">
+                {% for disease in category.diseases %}
+                <a class="disease-card" href="{{ url_for('disease_page', disease_slug=disease.slug) }}" style="--card-accent: {{ disease.accent }}">
+                    <span class="option-index">{{ "%02d"|format(loop.index) }}</span>
+                    <div>
+                        <p>{{ disease.subcategory }}</p>
+                        <h2>{{ disease.title }}</h2>
+                    </div>
+                    <span class="option-summary">{{ disease.summary }}</span>
+                    <span class="option-action">Open -></span>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+    </section>
+
+    <section class="chat-cta">
+        <div>
+            <p class="section-kicker">Current Issues</p>
+            <h2>Talk with the AI Doctor</h2>
+            <p>Describe symptoms, recent changes, and concerns in a private account chat.</p>
+        </div>
+        <a href="{{ url_for('chat') }}">Open Chat</a>
+    </section>
+
+    <section class="long-sections">
+        <article class="info-band">
+            <div>
+                <p class="section-kicker">Dashboard</p>
+                <h2>Everything in one health workspace</h2>
+                <p>After login, GeneCare brings together your saved disease predictions, AI doctor searches, reminders, notes, and downloadable reports.</p>
+            </div>
+            <a class="primary-link" href="{{ url_for('dashboard') }}">Open Dashboard</a>
+        </article>
+
+        <section class="feature-matrix">
+            <article>
+                <span>01</span>
+                <h3>User Health Profile</h3>
+                <p>Save age, weight, allergies, medicines, conditions, and family history for more useful context.</p>
+            </article>
+            <article>
+                <span>02</span>
+                <h3>PDF Reports</h3>
+                <p>Download assessment summaries with index, factor details, suggested checks, and safety notes.</p>
+            </article>
+            <article>
+                <span>03</span>
+                <h3>Metric Trends</h3>
+                <p>Track repeat screening indices and the values you entered over time.</p>
+            </article>
+            <article>
+                <span>04</span>
+                <h3>Care Reminders</h3>
+                <p>Add checkup, medication, lab-test, and follow-up reminders.</p>
+            </article>
+            <article>
+                <span>05</span>
+                <h3>Doctor Notes</h3>
+                <p>Store prescriptions, lab values, and advice from clinical visits.</p>
+            </article>
+            <article>
+                <span>06</span>
+                <h3>Admin Overview</h3>
+                <p>Admin accounts can review usage totals and high-risk assessment volume.</p>
+            </article>
+        </section>
+
+        <section class="process-section">
+            <div>
+                <p class="section-kicker">How it works</p>
+                <h2>Record, review, discuss, follow up</h2>
+            </div>
+            <div class="process-list">
+                <p><strong>1. Select an assessment</strong><span>Record measurements and relevant history for a specific health area.</span></p>
+                <p><strong>2. Review the index</strong><span>See which entered factors most influence the educational screening result.</span></p>
+                <p><strong>3. Ask the AI doctor</strong><span>Use the built-in guidance chat for current symptoms and preparation questions.</span></p>
+                <p><strong>4. Plan next steps</strong><span>Create reminders, save doctor notes, and export PDF reports.</span></p>
+            </div>
+        </section>
+
+        <section class="emergency-panel">
+            <div>
+                <p class="section-kicker">Emergency Guidance</p>
+                <h2>Know when to seek urgent help</h2>
+                <p>Chest pain, severe breathing trouble, fainting, stroke symptoms, severe bleeding, confusion, blue lips, or suicidal thoughts need immediate emergency care.</p>
+            </div>
+            <a href="{{ url_for('chat') }}">Ask about symptoms</a>
+        </section>
+
+        <section class="screening-disclaimer">
+            <p class="section-kicker">Important Note</p>
+            <h2>Screening is not diagnosis</h2>
+            <p>These indices organize entered risk factors for educational use. A qualified medical professional must interpret symptoms, measurements, laboratory values, and appropriate tests.</p>
+        </section>
+    </section>
+</main>
+</body>
+</html>

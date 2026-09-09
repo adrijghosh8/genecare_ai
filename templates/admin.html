@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | GeneCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="page-shell">
+    <nav class="top-nav" aria-label="Page navigation">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <div>
+            <a href="{{ url_for('history') }}">History</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+
+    <section class="history-hero">
+        <p class="eyebrow">Admin Panel</p>
+        <h1>GeneCare overview</h1>
+        <p class="hero-text">View platform activity, common usage counts, and high-risk assessment volume.</p>
+    </section>
+
+    <section class="dashboard-stats" aria-label="Admin summary">
+        <article><span>{{ stats.users }}</span><strong>Users</strong></article>
+        <article><span>{{ stats.assessments }}</span><strong>Assessments</strong></article>
+        <article><span>{{ stats.chats }}</span><strong>AI Chats</strong></article>
+        <article><span>{{ stats.high_risk }}</span><strong>High Risk</strong></article>
+    </section>
+
+    <section class="dashboard-card">
+        <p class="section-kicker">Users</p>
+        <h2>Account activity</h2>
+        <div class="admin-table">
+            <div class="admin-row header-row">
+                <span>User</span>
+                <span>Role</span>
+                <span>History</span>
+                <span>Reminders</span>
+            </div>
+            {% for username, account in users %}
+            <div class="admin-row">
+                <span>{{ account.full_name or username }}</span>
+                <span>{{ account.role|title }}</span>
+                <span>{{ account.history|length }}</span>
+                <span>{{ account.reminders|length }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+</body>
+</html>

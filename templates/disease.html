@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ disease.title }} | GeneCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="page-shell">
+    <nav class="top-nav" aria-label="Page navigation">
+        <a href="{{ url_for('home') }}">GeneCare AI</a>
+        <div>
+            <a href="{{ url_for('chat') }}">AI Doctor Chat</a>
+            {% if active_username %}
+            <a href="{{ url_for('history') }}">History</a>
+            <span>{{ active_display_name }}</span>
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <section class="detail-hero" style="--disease-accent: {{ disease.accent }}">
+        <div>
+            <p class="eyebrow">{{ disease.kicker }} / {{ disease.subcategory }}</p>
+            <h1>{{ disease.title }}</h1>
+            <p class="hero-text">{{ disease.description }}</p>
+        </div>
+        <div class="detail-stat">
+            <span>{{ disease.fields|length }}</span>
+            <strong>review metrics</strong>
+        </div>
+    </section>
+
+    <section class="workspace">
+        <form method="POST" class="prediction-form">
+            <div class="form-heading">
+                <div>
+                    <p class="section-kicker">Assessment</p>
+                    <h2>{{ disease.title }} Profile</h2>
+                </div>
+                <span class="input-count">{{ disease.fields|length }} metrics</span>
+            </div>
+
+            <div class="form-grid">
+                {% for field in disease.fields %}
+                <label class="field">
+                    <span>{{ field.label }}{% if field.unit is defined %} <em>{{ field.unit }}</em>{% endif %}</span>
+                    {% if field.options is defined %}
+                    <select name="{{ field.name }}" required>
+                        <option value="">Select option</option>
+                        {% for option in field.options %}
+                        <option value="{{ option.value }}" {% if submitted.get(field.name) == option.value %}selected{% endif %}>{{ option.label }}</option>
+                        {% endfor %}
+                    </select>
+                    {% else %}
+                    <input
+                        type="number"
+                        name="{{ field.name }}"
+                        placeholder="{{ field.placeholder }}"
+                        value="{{ submitted.get(field.name, '') }}"
+                        {% if field.min is defined %}min="{{ field.min }}"{% endif %}
+                        {% if field.max is defined %}max="{{ field.max }}"{% endif %}
+                        {% if field.step is defined %}step="{{ field.step }}"{% endif %}
+                        required
+                    >
+                    {% endif %}
+                    <small>{{ field.insight }}</small>
+                </label>
+                {% endfor %}
+            </div>
+
+            <p class="screening-note">Educational screening only. This index does not diagnose disease or replace clinical evaluation.</p>
+            <button type="submit">Analyze {{ disease.title }}</button>
+        </form>
+
+        {% if result %}
+        <section class="result-card" style="--risk-color: {{ result.color }}">
+            <div class="result-copy">
+                <p class="section-kicker">Screening Result</p>
+                <h2>{{ result.risk }}</h2>
+                <p>{{ result.label }}</p>
+                <p class="result-summary">{{ result.summary }}</p>
+            </div>
+            <div class="score-ring" style="--score: {{ result.percentage }}">
+                <span>{{ result.percentage }}</span>
+            </div>
+        </section>
+
+        <section class="result-grid">
+            <article class="metrics-panel">
+                <p class="section-kicker">Metric Breakdown</p>
+                <h2>Factors influencing the index</h2>
+                {% for metric in result.metrics %}
+                <div class="metric-row">
+                    <div class="metric-heading">
+                        <strong>{{ metric.label }}</strong>
+                        <span class="{{ metric.tone }}">{{ metric.status }}</span>
+                    </div>
+                    <p>{{ metric.value }} | {{ metric.points }} index points</p>
+                    <div class="metric-track"><span class="{{ metric.tone }}" style="width: {{ metric.impact }}%"></span></div>
+                    <small>{{ metric.insight }}</small>
+                </div>
+                {% endfor %}
+            </article>
+            <aside class="care-panel">
+                <div>
+                    <p class="section-kicker">Main Influences</p>
+                    <h2>Top entered factors</h2>
+                    <ul class="care-list">
+                        {% for metric in result.top_drivers %}
+                        <li><strong>{{ metric.label }}</strong><span>{{ metric.value }} | {{ metric.points }} points</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <p class="section-kicker">Discuss With A Clinician</p>
+                    <ul class="care-list compact">
+                        {% for check in result.checks %}
+                        <li>{{ check }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="urgent-list">
+                    <p class="section-kicker">Seek Urgent Help For</p>
+                    <ul class="care-list compact">
+                        {% for sign in result.red_flags %}
+                        <li>{{ sign }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <p class="section-kicker">Everyday Next Steps</p>
+                    <ul class="care-list compact">
+                        {% for item in result.guidance %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </aside>
+        </section>
+        {% endif %}
+    </section>
+
+    <section class="disease-switcher" aria-label="Related assessment pages">
+        {% for item in related %}
+        <a class="{% if item.slug == disease.slug %}active{% endif %}" href="{{ url_for('disease_page', disease_slug=item.slug) }}">
+            {{ item.title }}
+        </a>
+        {% endfor %}
+    </section>
+</main>
+</body>
+</html>

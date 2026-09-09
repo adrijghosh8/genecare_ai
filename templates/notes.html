@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Notes | GeneCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="page-shell">
+    <nav class="top-nav" aria-label="Page navigation">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <div>
+            <a href="{{ url_for('reminders') }}">Reminders</a>
+            <a href="{{ url_for('chat') }}">AI Doctor Chat</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+
+    <section class="history-hero">
+        <p class="eyebrow">Care Notes</p>
+        <h1>Doctor Notes</h1>
+        <p class="hero-text">Save prescriptions, lab values, doctor advice, or personal observations.</p>
+    </section>
+
+    <section class="two-column-page">
+        <form method="POST" class="prediction-form">
+            <div class="form-heading">
+                <div>
+                    <p class="section-kicker">New Note</p>
+                    <h2>Save details</h2>
+                </div>
+            </div>
+            <label class="field">
+                <span>Title</span>
+                <input type="text" name="title" placeholder="Blood test advice" required>
+            </label>
+            <label class="field note-field">
+                <span>Note</span>
+                <textarea name="body" rows="8" placeholder="Write the note here..." required></textarea>
+            </label>
+            <button type="submit">Save Note</button>
+        </form>
+
+        <section class="dashboard-card">
+            <p class="section-kicker">Saved</p>
+            <h2>Notes</h2>
+            {% if notes %}
+            <div class="note-list">
+                {% for note in notes %}
+                <article>
+                    <span>{{ note.created_at }}</span>
+                    <h3>{{ note.title }}</h3>
+                    <p>{{ note.body }}</p>
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="empty-state">No notes yet.</p>
+            {% endif %}
+        </section>
+    </section>
+</main>
+</body>
+</html>
