@@ -57,7 +57,7 @@ async function loadProfile() {
     try {
 
         const response = await fetch(
-            "http://localhost:8000/me",
+            "https://genecare-ai.onrender.com/me",
             {
                 method: "GET",
 
@@ -191,7 +191,7 @@ form.addEventListener(
         try {
 
             const response = await fetch(
-                "http://localhost:8000/me",
+                "https://genecare-ai.onrender.com/me",
                 {
                     method: "PUT",
 
@@ -385,7 +385,7 @@ if (passwordForm) {
             try {
 
                 const response = await fetch(
-                    "http://localhost:8000/change-password",
+                    "https://genecare-ai.onrender.com/change-password",
                     {
                         method: "PUT",
 
