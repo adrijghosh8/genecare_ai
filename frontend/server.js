@@ -26,13 +26,10 @@ const server = createServer(async (request, response) => {
 
         // Homepage
         if (requestedPath === "/") {
-            requestedPath = "/pages/index.html";
+            requestedPath = "/index.html";
         }
 
-        // HTML pages are stored inside /pages
-        else if (requestedPath.endsWith(".html")) {
-            requestedPath = `/pages${requestedPath}`;
-        }
+        // robots.txt and favicon are stored inside /public
 
         // robots.txt and favicon are stored inside /public
         else if (
