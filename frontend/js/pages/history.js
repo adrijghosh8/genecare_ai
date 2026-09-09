@@ -9,7 +9,7 @@ async function loadHistory() {
     try {
 
         const response = await fetch(
-            "http://localhost:8000/history",
+            "https://genecare-ai.onrender.com/history",
             {
                 method: "GET",
 
