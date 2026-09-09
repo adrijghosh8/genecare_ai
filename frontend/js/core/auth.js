@@ -12,7 +12,7 @@ loginForm.addEventListener("submit", async function (event) {
     try {
 
         const response = await fetch(
-            "https://genecare-ai.onrender.com",
+            "https://genecare-ai.onrender.com/login",
             {
                 method: "POST",
 
