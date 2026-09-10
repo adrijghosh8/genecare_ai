@@ -219,7 +219,7 @@ def get_me(current_user_id: int = Depends(get_current_user)):
 
     return dict(user)
 
-@app.post("/me")
+@app.put("/me")
 def update_profile(
     data: UpdateProfileInput,
     user_id: int = Depends(get_current_user)
