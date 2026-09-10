@@ -387,7 +387,7 @@ if (passwordForm) {
                 const response = await fetch(
                     "https://genecare-ai.onrender.com/change-password",
                     {
-                        method: "PUT",
+                        method: "POST",
 
                         headers: {
                             "Content-Type":
