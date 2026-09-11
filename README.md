@@ -326,16 +326,6 @@ Models are evaluated using multiple performance metrics rather than relying only
 | F1 Score  | Balance between precision and recall      |
 | ROC-AUC   | Overall discrimination capability         |
 
-Example evaluation format:
-
-| Model   | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
-| ------- | -------: | --------: | -----: | -------: | ------: |
-| Model 1 |        — |         — |      — |        — |       — |
-| Model 2 |        — |         — |      — |        — |       — |
-| Model 3 |        — |         — |      — |        — |       — |
-
-> Final values should be added from the validated experimental results.
-
 ---
 
 # 🔌 API Architecture
