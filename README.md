@@ -476,16 +476,6 @@ git push origin feature/your-feature
 # Open a Pull Request
 ```
 
----
-
-# 📜 License
-
-This project is intended for educational and research purposes.
-
-Add an appropriate open-source license such as **MIT License** if you decide to make the project officially open source.
-
----
-
 # 👨‍💻 Author
 
 ### Adrij Ghosh
